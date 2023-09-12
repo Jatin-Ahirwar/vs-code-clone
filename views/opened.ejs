@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="../stylesheets/style.css">
+  <link href="https://cdn.jsdelivr.net/npm/remixicon@2.2.0/fonts/remixicon.css" rel="stylesheet">
+</head>
+<body>
+    <div id="main">
+      <div id="nav">
+        <div id="l">
+          <div id="img"></div>
+          <a href="">File</a>
+          <a href="">Edit</a>
+          <a href="">Selection</a>
+          <a href="">View</a>
+          <a href="">Go</a>
+          <a href="">Run</a>
+          <a href="">Terminal</a>
+          <a href="">Help</a>
+        </div>
+        <div id="m">
+          <h5>filename - appname - visual studio code</h5>
+        </div>
+        <div id="r">
+          <i class="ri-layout-column-fill"></i>
+          <i class="ri-layout-row-fill"></i>
+          <i class="ri-layout-right-line"></i>
+          <i class="ri-layout-2-fill"></i>
+          <i class="ri-layout-2-line"></i>
+          <div id="win">
+          <i class="ri-subtract-fill"></i>
+          <i class="ri-checkbox-multiple-blank-line"></i>
+          <i class="ri-close-line"></i>
+          </div>
+        </div>
+      </div>
+      <div id="mid">
+        <div id="left">
+          <div id="part1">
+            <i class="ri-file-copy-line"></i>
+          <i class="ri-search-line"></i>
+          <i class="ri-scissors-fill"></i>
+          <i class="ri-play-mini-line" id="i4"></i>
+          <i class="ri-add-box-line"></i>
+          </div>
+          <div id="part2">
+            <i class="ri-map-pin-user-line"></i>
+            <i class="ri-settings-2-line"></i>
+          </div>
+        </div>
+        <div id="mid">
+          <div id="top">
+            <h5>Explorer</h5>
+            <i class="ri-more-line"></i>
+          </div>
+          <div id="m">
+           <div id="mnav">
+            <div id="foldername">
+              <h4>folder name</h4>
+            </div>
+            <div id="icon">
+            <i id="fileicon" class="ri-file-2-line"></i>
+            <i id="foldericon" class="ri-folder-fill"></i>
+            <a href="/"><i class="ri-restart-line"></i></a>
+            </div>
+           </div> 
+           <form id="fileform" action="/createfile">
+            <input type="text" name="filename" placeholder="filename">
+           </form>
+           <form id="folderform" action="/createfolder">
+            <input type="text" name="foldername" placeholder="foldername">
+           </form>
+           <% files.forEach(function(file){ %>
+           <% if(file.isfolder === true){ %>
+            <div class="file">
+              <div id="f"><i class="ri-folder-line"></i><h4><a href="/"><%= file.name%></a></h4></div>
+              <div id="iconnn">
+                <i class="ri-pencil-fill"></i>
+                <a href="/deletefolder/<%= file.name%>"><i class="ri-delete-bin-6-line"></i></a>     
+                </div>
+            </div>
+           <% } else { %>
+            <div class="file">
+              <div id="f"><i class="ri-file-line"></i><h4><a href="/file/<%= file.name %>"><%= file.name%></a></h4></div>
+              <div id="iconnn">
+                <i class="ri-pencil-fill"></i>
+                <a href="/deletefile/<%= file.name %>"><i class="ri-delete-bin-6-line"></i></a>     
+              </div>
+            </div>
+           <% } %>
+           <% })%>
+          </div>
+          <div id="bottam">
+            <div id="outline">
+              >   outline
+            </div>
+            <div id="timeline">
+              > timeline
+            </div>
+          </div>
+        </div>
+         <div id="right">
+            <div id="rnav">
+            <div id="openfile">
+               <i class="ri-file-2-line"></i>
+               <h4><%= filename%></h4>
+               <a href="/"><i id="close" class="ri-close-line"></i></a>
+            </div>
+            <div id="line"></div>
+            </div>
+            <textarea>
+                <%= filedata%>
+            </textarea>
+        </div>
+        </div>
+      </div>
+    <script src="../javascripts/script.js"></script>
+</body>
+</html>
+
+
+
+
+
+
